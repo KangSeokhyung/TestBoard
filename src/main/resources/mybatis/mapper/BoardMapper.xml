@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.testboard.mapper.BoardMapper">
+    
+    <select id="getAllPosts" resultType="BoardDTO">
+        SELECT id, title, content, author, created_at as createdAt, view_count as viewCount
+        FROM board
+        ORDER BY created_at DESC
+    </select>
+    
+    <select id="getPostById" parameterType="Long" resultType="BoardDTO">
+        SELECT id, title, content, author, created_at as createdAt, view_count as viewCount
+        FROM board
+        WHERE id = #{id}
+    </select>
+    
+    <select id="getPostsWithPaging" resultType="BoardDTO">
+        SELECT id, title, content, author, created_at as createdAt, view_count as viewCount
+        FROM board
+        ORDER BY id DESC
+        LIMIT #{size} OFFSET #{offset}
+    </select>
+    
+    <select id="getTotalCount" resultType="long">
+        SELECT COUNT(*)
+        FROM board
+    </select>
+    
+    <insert id="createPost" parameterType="BoardDTO">
+        INSERT INTO board (title, content, author, created_at, view_count)
+        VALUES (#{title}, #{content}, #{author}, NOW(), 0)
+    </insert>
+    
+    <update id="updatePost" parameterType="BoardDTO">
+        UPDATE board
+        SET title = #{title},
+            content = #{content}
+        WHERE id = #{id}
+    </update>
+    
+    <delete id="deletePost" parameterType="Long">
+        DELETE FROM board
+        WHERE id = #{id}
+    </delete>
+    
+    <update id="incrementViewCount" parameterType="Long">
+        UPDATE board
+        SET view_count = view_count + 1
+        WHERE id = #{id}
+    </update>
+</mapper>

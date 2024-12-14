@@ -1,0 +1,39 @@
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+    &lt;!&ndash; Mybatis 관련 설정 작성하기 * 아래 순서 중요, 바뀌면 안됨! &ndash;&gt;
+
+    &lt;!&ndash; SqlSessionTemplate 관련 설정 &ndash;&gt;
+    <settings>
+
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
+
+    &lt;!&ndash; 별칭 작성 부분 &ndash;&gt;
+    <typeAliases>
+        <typeAlias type="com.springboot.testboard.DTO.TodoDTO" alias="Todo"/>
+
+        &lt;!&ndash;<typeAlias type="edu.kh.comm.board.model.vo.Board"  		alias="board"/>
+        <typeAlias type="edu.kh.comm.board.model.vo.BoardDetail"  	alias="detail"/>
+        <typeAlias type="edu.kh.comm.board.model.vo.BoardImage"  	alias="boardImage"/>
+        <typeAlias type="edu.kh.comm.board.model.vo.BoardType"  	alias="boardType"/>&ndash;&gt;
+
+
+    </typeAliases>
+
+    &lt;!&ndash; SQL이 작성되는 mapper 파일 위치 등록 &ndash;&gt;
+    <mappers>
+        &lt;!&ndash;
+            <mapper resource=""/>의 작성 기준
+            ->src/main/resources 폴더
+
+         &ndash;&gt;
+        <mapper resource="/mybatis/mapper/TodoMapper.xml"/>
+        &lt;!&ndash;<mapper resource="/mappers/myPage-mapper.xml"/>
+        <mapper resource="/mappers/board-mapper.xml"/>&ndash;&gt;
+    </mappers>
+
+
+
+</configuration>-->
