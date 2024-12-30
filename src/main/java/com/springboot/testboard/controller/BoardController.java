@@ -22,7 +22,7 @@ public class BoardController {
         log.info("Fetching posts for page: {}", page);
         model.addAttribute("posts", boardService.getPostsWithPaging(page, PAGE_SIZE));
         model.addAttribute("pageInfo", boardService.getPageInfo(page, PAGE_SIZE));
-        return "board/list";
+        return "board/list";  //조회한 걸 노출시키는 화면명 MVC패턴
     }
     
     @GetMapping("/{id}")
